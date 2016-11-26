@@ -1,0 +1,8 @@
+.idea
+*.iml
+
+target/
+java-gizwits-common/target/
+java-gizwits-core/target/
+java-gizwits-jdk/target/
+java-gizwits-test/target/
