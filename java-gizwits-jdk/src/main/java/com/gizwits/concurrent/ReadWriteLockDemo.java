@@ -32,7 +32,7 @@ public class ReadWriteLockDemo implements Runnable {
             readLock.lock(); //首先开启读锁，从缓存中去取
             Integer count = map.get("count");
             System.out.println(count);
-            readLock.unlock();
+            readLock.unlock();// 在获得写锁前，必须先释放读锁:
             writeLock.lock();
             try {
                 map.put("count", map.get("count") + 1);
@@ -40,16 +40,17 @@ public class ReadWriteLockDemo implements Runnable {
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
-
-                writeLock.unlock();
-                //然后再上读锁
+                //然后再上读锁, 在释放写锁前，先获得读锁:
                 readLock.lock();
+                writeLock.unlock();
+
             }
 
 
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            // 确保读锁在方法返回前被释放:
             readLock.unlock();
         }
 

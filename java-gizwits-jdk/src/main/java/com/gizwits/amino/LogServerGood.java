@@ -1,6 +1,6 @@
 package com.gizwits.amino;
 
-import org.amino.ds.lockfree.LockFreeDeque;
+import org.amino.ds.lockfree.LockFreePriorityQueue;
 
 import java.io.IOException;
 import java.util.Queue;
@@ -13,7 +13,7 @@ public class LogServerGood {
     public LogServerGood() throws IOException {
         /*Amino components are compatible with standard interface whenever
          * possible*/
-        queue = new LockFreeDeque<String>();
+        queue = new LockFreePriorityQueue<String>();
 
     }
 

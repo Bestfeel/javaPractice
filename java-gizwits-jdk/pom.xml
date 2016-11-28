@@ -30,5 +30,11 @@
             <artifactId>cglib</artifactId>
             <version>${cglib.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.amino</groupId>
+            <artifactId>amino</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+
     </dependencies>
 </project>

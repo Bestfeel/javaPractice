@@ -25,12 +25,15 @@
         <java-version>1.8</java-version>
     </properties>
 
-    <!--<dependencyManagement>-->
-
-    <!--</dependencyManagement>-->
-
 
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -63,6 +66,8 @@
             <version>2.7.2</version>
         </dependency>
 
+
+        <!--log4j-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
@@ -74,29 +79,14 @@
             <version>1.1.7</version>
         </dependency>
 
-
+        <!--weka-->
         <dependency>
             <groupId>nz.ac.waikato.cms.weka</groupId>
             <artifactId>weka-stable</artifactId>
             <version>3.8.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-core</artifactId>
-            <version>3.3.3</version>
-        </dependency>
-        <dependency>
-            <groupId>io.vertx</groupId>
-            <artifactId>vertx-web</artifactId>
-            <version>3.3.3</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.shell</groupId>
-            <artifactId>spring-shell</artifactId>
-            <version>1.2.0.RELEASE</version>
-        </dependency>
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>retrofit</artifactId>
@@ -118,79 +108,6 @@
 
     </dependencies>
 
-    <!--<repositories>-->
-    <!--<repository>-->
-    <!--<id>Motion</id>-->
-    <!--<url>http://nexus.thenewmotion.com/content/groups/public/</url>-->
-    <!--<name>Motion</name>-->
-    <!--<snapshots>-->
-    <!--<enabled>true</enabled>-->
-    <!--</snapshots>-->
-    <!--</repository>-->
-
-    <!--<repository>-->
-    <!--<id>oschina</id>-->
-    <!--<url>http://maven.oschina.net/content/groups/public/</url>-->
-    <!--<name>oschina</name>-->
-    <!--<snapshots>-->
-    <!--<enabled>true</enabled>-->
-    <!--</snapshots>-->
-    <!--</repository>-->
-    <!--<repository>-->
-    <!--<id>scala-tools.org</id>-->
-    <!--<name>Scala-Tools Maven2 Repository</name>-->
-    <!--<url>http://scala-tools.org/repo-releases</url>-->
-    <!--</repository>-->
-    <!--<repository>-->
-    <!--<id>scalaz</id>-->
-    <!--<name>scalaz</name>-->
-    <!--<url>http://dl.bintray.com/scalaz/releases</url>-->
-    <!--</repository>-->
-
-    <!--<repository>-->
-    <!--<id>jahia</id>-->
-    <!--<name>mvnrepository</name>-->
-    <!--<url>http://maven.jahia.org/maven2</url>-->
-    <!--</repository>-->
-    <!--<repository>-->
-    <!--<id>mvnrepository</id>-->
-    <!--<name>Derbysoft Release Repository</name>-->
-    <!--<url>http://search.maven.org/remotecontent?filepath=</url>-->
-    <!--</repository>-->
-
-    <!--<repository>-->
-    <!--<id>cdh.rcs.releases.repo</id>-->
-    <!--<url>https://repository.cloudera.com/content/groups/cdh-releases-rcs</url>-->
-    <!--<name>CDH Releases Repository</name>-->
-    <!--<snapshots>-->
-    <!--<enabled>true</enabled>-->
-    <!--</snapshots>-->
-    <!--</repository>-->
-    <!--<repository>-->
-    <!--<id>cdh.releases.repo</id>-->
-    <!--<url>https://repository.cloudera.com/content/repositories/releases</url>-->
-    <!--<name>CDH Releases Repository</name>-->
-    <!--<snapshots>-->
-    <!--<enabled>false</enabled>-->
-    <!--</snapshots>-->
-    <!--</repository>-->
-    <!--<repository>-->
-    <!--<id>cdh.snapshots.repo</id>-->
-    <!--<url>https://repository.cloudera.com/content/repositories/snapshots</url>-->
-    <!--<name>CDH Snapshots Repository</name>-->
-    <!--<snapshots>-->
-    <!--<enabled>true</enabled>-->
-    <!--</snapshots>-->
-    <!--</repository>-->
-    <!--<repository>-->
-    <!--<id>cloudera.thirdparty.repo</id>-->
-    <!--<url>https://repository.cloudera.com/content/repositories/third-party</url>-->
-    <!--<name>Cloudera Third Party Repository</name>-->
-    <!--<snapshots>-->
-    <!--<enabled>false</enabled>-->
-    <!--</snapshots>-->
-    <!--</repository>-->
-    <!--</repositories>-->
 
     <build>
         <pluginManagement>
@@ -256,15 +173,23 @@
                         </execution>
                     </executions>
                 </plugin>
+                <!-- 把依赖的jar包拷到lib目录下 -->
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.5.1</version>
                     <executions>
                         <execution>
-                            <id>getClasspathFilenames</id>
+                            <id>copy-dependencies</id>
+                            <phase>package</phase>
                             <goals>
-                                <goal>properties</goal>
+                                <goal>copy-dependencies</goal>
                             </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                                <overWriteSnapshots>false</overWriteSnapshots>
+                                <overWriteIfNewer>true</overWriteIfNewer>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
