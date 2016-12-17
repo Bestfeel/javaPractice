@@ -5,10 +5,8 @@ package com.gizwits.annotation;
  */
 @Bean(value = "prcess")
 public class Process {
-
-
     @Color
-    public void process(String name,int  age) {
+    public void process(String name, int age) {
 
         System.out.println("name-->" + name);
     }

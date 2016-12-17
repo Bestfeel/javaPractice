@@ -59,7 +59,7 @@ public class App {
         System.out.println(a);
 
 
-        Process process = (Process) cls.newInstance();
+        Bean process = (Bean) cls.newInstance();
 
         //  Field[] fields = cls.getDeclaredFields();
 

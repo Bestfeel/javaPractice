@@ -9,17 +9,17 @@
         </encoder>
     </appender>
 
-    <!-- 可让每天产生一个日志文件，最多 30 个，自动回滚 -->
-    <appender name="rollingFile"
-              class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>data-process.%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-        <encoder charset="UTF-8">
-            <pattern>%date{yyyy-MMM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
+    <!--&lt;!&ndash; 可让每天产生一个日志文件，最多 30 个，自动回滚 &ndash;&gt;-->
+    <!--<appender name="rollingFile"-->
+    <!--class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+    <!--<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+    <!--<fileNamePattern>data-process.%d{yyyy-MM-dd}.log</fileNamePattern>-->
+    <!--<maxHistory>30</maxHistory>-->
+    <!--</rollingPolicy>-->
+    <!--<encoder charset="UTF-8">-->
+    <!--<pattern>%date{yyyy-MMM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+    <!--</encoder>-->
+    <!--</appender>-->
 
 
     <root level="info">

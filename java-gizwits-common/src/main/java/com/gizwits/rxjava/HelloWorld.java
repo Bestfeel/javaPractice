@@ -4,6 +4,7 @@ package com.gizwits.rxjava;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rx.Observable;
+import rx.schedulers.Schedulers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,7 +41,7 @@ public class HelloWorld {
 
 
         Observable.from(Arrays.asList(1, 2, 3, 4, 5))
-                // .debounce(4000, TimeUnit.MINUTES)
+                // .debounce(4000, TimeUnit.MINUTES)  //俗点讲，就是N个事件发生的时间间隔太近，就过滤掉前N-1个事件，保留最后一个事件。debounce可以指定这个时间间隔！
                 // .subscribeOn(Schedulers.io()) //  指定 subscribe（） 发生在IO 线程
                 .map(s -> s * 2)
                 .take(2)
@@ -61,10 +62,18 @@ public class HelloWorld {
         List<Integer> list = Arrays.asList(6, 7, 8, 9, 10);
 
 
+        // 窗口操作，打印每次窗口中的元素（6，7，8，9）（10，...) ,上例中有2个窗口操作
         Observable.from(list).window(4).subscribe(subs -> {
             logger.info("....windows ...");
-            subs.subscribe(s -> logger.info("{}", s));
+            subs.subscribe(s -> logger.info("windows...{}", s));
         });
+
+
+        Observable.from(Arrays.asList(1, 2, 3, 4, 5))
+                .subscribeOn(Schedulers.io())  // 指定 subscribe() 发生在 IO 线程
+                .observeOn(Schedulers.newThread())
+                .observeOn(Schedulers.immediate())
+                .subscribe(s -> logger.info("s:{}", s));
 
         // end main
     }
