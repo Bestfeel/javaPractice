@@ -3,11 +3,10 @@
  * This program is my java practice.you  will be learn more .
  */
 
-package com.gizwits.bean;
+package com.gizwits.test;
 
 /**
- * Created by feel on 16/4/3.
+ * Created by feel on 2016/12/22.
  */
-public interface IPerson {
-    String eat();
+public class App {
 }

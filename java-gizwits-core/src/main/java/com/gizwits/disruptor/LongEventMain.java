@@ -1,10 +1,13 @@
+/*
+ * Copyright (c) 2016.  feel ,www.feel88.cn
+ * This program is my java practice.you  will be learn more .
+ */
+
 package com.gizwits.disruptor;
 
 import com.lmax.disruptor.BlockingWaitStrategy;
 import com.lmax.disruptor.RingBuffer;
-import com.lmax.disruptor.YieldingWaitStrategy;
 import com.lmax.disruptor.dsl.Disruptor;
-import com.lmax.disruptor.dsl.EventHandlerGroup;
 import com.lmax.disruptor.dsl.ProducerType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

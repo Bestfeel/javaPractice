@@ -53,6 +53,18 @@
             <version>${powermock.version}</version>
         </dependency>
 
+        <!--link http://logging.apache.org/log4j/2.x/maven-artifacts.html-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.7</version>
+        </dependency>
 
     </dependencies>
 </project>
