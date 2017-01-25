@@ -10,9 +10,6 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-/**
- * Created by feel on 2016/12/21.
- */
 interface IFace {
 
     String show();

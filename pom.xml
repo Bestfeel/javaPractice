@@ -10,6 +10,8 @@
         <module>java-gizwits-jdk</module>
         <module>java-gizwits-core</module>
         <module>java-gizwits-test</module>
+        <module>java-gizwits-spark</module>
+        <module>java-gizwits-scala</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -33,6 +35,36 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.shekhargulati</groupId>
+            <artifactId>strman</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <!--基于内存的键值对存储方案-->
+        <dependency>
+            <groupId>net.openhft</groupId>
+            <artifactId>chronicle-map</artifactId>
+            <version>3.11.0</version>
+        </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>com.koloboke</groupId>-->
+        <!--<artifactId>koloboke-api-jdk8</artifactId>-->
+        <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>net.openhft</groupId>-->
+        <!--<artifactId>koloboke-impl-jdk8</artifactId>-->
+        <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>com.github.lwhite1</groupId>
+            <artifactId>tablesaw</artifactId>
+            <version>0.7.6.4</version>
+        </dependency>
+
 
         <dependency>
             <groupId>commons-io</groupId>

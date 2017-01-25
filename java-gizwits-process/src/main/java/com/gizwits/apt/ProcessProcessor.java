@@ -25,13 +25,18 @@ import java.util.Set;
 public class ProcessProcessor extends AbstractProcessor {
 
     private Messager messager;
+    private Filer filer;
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
         super.init(processingEnv);
         //错误处理,获取消息处理
-        messager = processingEnv.getMessager();
+        this.messager = processingEnv.getMessager();
+        //Filer是个接口，支持通过注解处理器创建新文件
+        this.filer = processingEnv.getFiler();
+
         System.out.println("....init....");
+
     }
 
 
