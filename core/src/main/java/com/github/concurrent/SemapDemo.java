@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
 package com.github.concurrent;
 
 import java.util.concurrent.ExecutorService;
@@ -9,7 +5,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 /**
- * Created by feel on 2016/11/7.
  * <p>
  * 信号量
  */

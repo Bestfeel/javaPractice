@@ -1,20 +1,11 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
-
 package com.github.proxy;
 
 import com.github.bean.User;
 import net.sf.cglib.proxy.Enhancer;
 
-/**
- * Created by feel on 16/4/3.
- */
 public class CGlibProxy {
 
     public static void main(String[] args) {
-
 
 
         //cglib 中加强器，用来创建动态代理

@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
-
 package com.github.retrofit;
 
 import okhttp3.OkHttpClient;
@@ -17,7 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by feel on 2016/12/5.
  * <p>
  * link:https://github.com/hongyangAndroid/okhttputils
  */

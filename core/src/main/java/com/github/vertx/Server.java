@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
 package com.github.vertx;
 
 import io.vertx.core.AbstractVerticle;
@@ -11,9 +7,8 @@ import io.vertx.core.VertxOptions;
 
 
 public class Server extends AbstractVerticle {
+    @Override
     public void start() {
-
-
         vertx.createHttpServer().requestHandler(req -> {
             req.response()
                     .putHeader("content-type", "text/plain")
@@ -37,7 +32,6 @@ public class Server extends AbstractVerticle {
         });
 
         new Thread(() -> {
-
             while (true) {
                 try {
                     Thread.sleep(1000);
@@ -47,8 +41,6 @@ public class Server extends AbstractVerticle {
                     e.printStackTrace();
                 }
             }
-
-
         }).start();
 
     }

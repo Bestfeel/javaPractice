@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
-
 package com.github.amino;
 
 import org.amino.ds.lockfree.LockFreeList;
@@ -14,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by feel on 2016/11/27.
  * 无锁数据结构
  */
 public class ListTest {

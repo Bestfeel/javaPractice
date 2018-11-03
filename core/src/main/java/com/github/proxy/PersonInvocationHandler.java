@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
-
 package com.github.proxy;
 
 import com.github.bean.Person;
@@ -10,9 +5,6 @@ import com.github.bean.Person;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
-/**
- * Created by feel on 16/4/3.
- */
 public class PersonInvocationHandler implements InvocationHandler {
 
     private Person person;

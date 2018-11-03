@@ -1,13 +1,5 @@
-/*
- * Copyright (c) 2017.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more.
- */
-
 package com.github.thread;
 
-/**
- * Created by feel on 2017/7/20.
- */
 public class PrinterThread {
     public static void main(String[] args) {
 

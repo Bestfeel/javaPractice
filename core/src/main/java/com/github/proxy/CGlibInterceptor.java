@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
-
 package com.github.proxy;
 
 import net.sf.cglib.proxy.MethodInterceptor;
@@ -11,9 +6,6 @@ import net.sf.cglib.proxy.MethodProxy;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
-/**
- * Created by feel on 16/4/3.
- */
 public class CGlibInterceptor implements MethodInterceptor {
 
     CGlibInterceptor(String name) {

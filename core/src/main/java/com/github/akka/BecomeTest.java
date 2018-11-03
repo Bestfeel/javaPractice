@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
-
 package com.github.akka;
 
 import akka.actor.ActorRef;
@@ -15,9 +10,6 @@ enum Msg {
     HAPPY, ANGRY
 }
 
-/**
- * Created by feel on 2016/12/1.
- */
 public class BecomeTest {
 
     public static void main(String[] args) {

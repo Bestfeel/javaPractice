@@ -1,12 +1,5 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
 package com.github.concurrent;
 
-/**
- * Created by feel on 2016/11/22.
- */
 public class TestCount implements Runnable {
 
     private static int num = 0;

@@ -1,8 +1,3 @@
-/*
- * Copyright (c) 2016.  feel ,www.feel88.cn
- * This program is my java practice.you  will be learn more .
- */
-
 package com.github.concurrent;
 
 import java.util.HashMap;
@@ -13,7 +8,6 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * Created by feel on 2016/11/7.
  * <p>
  * 读读共享，写写互斥。
  * <p>
