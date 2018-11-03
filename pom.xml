@@ -2,32 +2,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.gizwits</groupId>
+    <groupId>com.github</groupId>
     <artifactId>javaPractice</artifactId>
     <version>1.0</version>
-    <modules>
-        <module>java-gizwits-common</module>
-        <module>java-gizwits-jdk</module>
-        <module>java-gizwits-core</module>
-        <module>java-gizwits-test</module>
-        <module>java-gizwits-spark</module>
-        <module>java-gizwits-scala</module>
-    </modules>
     <packaging>pom</packaging>
-
     <name>javaPractice</name>
     <url>http://maven.apache.org</url>
-
+    <modules>
+        <module>api</module>
+        <module>core</module>
+        <module>test</module>
+        <module>web</module>
+    </modules>
     <properties>
-        <!-- 文件拷贝时的编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!-- 编译时的编码 -->
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <java-version>1.8</java-version>
+        <java.version>1.8</java.version>
     </properties>
-
-
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -35,100 +27,41 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>com.shekhargulati</groupId>
-            <artifactId>strman</artifactId>
-            <version>0.2.0</version>
-        </dependency>
-        <!--基于内存的键值对存储方案-->
-        <dependency>
-            <groupId>net.openhft</groupId>
-            <artifactId>chronicle-map</artifactId>
-            <version>3.11.0</version>
-        </dependency>
-
-        <!--<dependency>-->
-        <!--<groupId>com.koloboke</groupId>-->
-        <!--<artifactId>koloboke-api-jdk8</artifactId>-->
-        <!--<version>1.0.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>net.openhft</groupId>-->
-        <!--<artifactId>koloboke-impl-jdk8</artifactId>-->
-        <!--<version>1.0.0</version>-->
-        <!--</dependency>-->
-
-        <dependency>
-            <groupId>com.github.lwhite1</groupId>
-            <artifactId>tablesaw</artifactId>
-            <version>0.7.6.4</version>
-        </dependency>
-
-
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.5</version>
+            <version>2.6</version>
         </dependency>
         <dependency>
-            <groupId>jline</groupId>
-            <artifactId>jline</artifactId>
-            <version>2.14.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>1.13</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.8.1</version>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-yaml</artifactId>
-            <version>2.7.2</version>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
         </dependency>
-
-
-        <!--log4j-->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>1.1.7</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.1.7</version>
-        </dependency>
-
-        <!--weka-->
-        <dependency>
-            <groupId>nz.ac.waikato.cms.weka</groupId>
-            <artifactId>weka-stable</artifactId>
-            <version>3.8.0</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>converter-gson</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-
-        <!--  实现了将线程绑定到cpu 上-->
-        <dependency>
-            <groupId>net.openhft</groupId>
-            <artifactId>affinity</artifactId>
-            <version>3.0.6</version>
-        </dependency>
-
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>20.0</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.4</version>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement>
@@ -146,15 +79,14 @@
                         </archive>
                     </configuration>
                 </plugin>
-
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.5.1</version>
                     <configuration>
-                        <source>${java-version}</source>
-                        <target>${java-version}</target>
-                        <compilerVersion>${java-version}</compilerVersion>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <compilerVersion>${java.version}</compilerVersion>
                         <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
@@ -166,9 +98,7 @@
                         <encoding>UTF-8</encoding>
                     </configuration>
                 </plugin>
-
                 <plugin>
-                    <!-- 打包插件 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <configuration>
@@ -180,7 +110,6 @@
                     </configuration>
                     <version>2.3.1</version>
                 </plugin>
-
                 <plugin>
                     <groupId>net.alchim31.maven</groupId>
                     <artifactId>scala-maven-plugin</artifactId>
@@ -194,26 +123,6 @@
                         </execution>
                     </executions>
                 </plugin>
-                <!-- 把依赖的jar包拷到lib目录下 -->
-                <!--<plugin>-->
-                    <!--<groupId>org.apache.maven.plugins</groupId>-->
-                    <!--<artifactId>maven-dependency-plugin</artifactId>-->
-                    <!--<executions>-->
-                        <!--<execution>-->
-                            <!--<id>copy-dependencies</id>-->
-                            <!--<phase>package</phase>-->
-                            <!--<goals>-->
-                                <!--<goal>copy-dependencies</goal>-->
-                            <!--</goals>-->
-                            <!--<configuration>-->
-                                <!--<outputDirectory>${project.build.directory}/lib</outputDirectory>-->
-                                <!--<overWriteReleases>false</overWriteReleases>-->
-                                <!--<overWriteSnapshots>false</overWriteSnapshots>-->
-                                <!--<overWriteIfNewer>true</overWriteIfNewer>-->
-                            <!--</configuration>-->
-                        <!--</execution>-->
-                    <!--</executions>-->
-                <!--</plugin>-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
@@ -243,5 +152,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
 </project>
