@@ -67,11 +67,11 @@
             <artifactId>javapoet</artifactId>
             <version>1.8.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.amino</groupId>
-            <artifactId>amino</artifactId>
-            <version>0.2.0</version>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>org.amino</groupId>-->
+        <!--<artifactId>amino</artifactId>-->
+        <!--<version>0.2.0</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
@@ -224,7 +224,7 @@
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
             <version>1.21</version>
-            <scope>test</scope>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
@@ -243,7 +243,6 @@
                         </archive>
                     </configuration>
                 </plugin>
-
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -276,19 +275,19 @@
                     <version>2.3.1</version>
                 </plugin>
 
-                <plugin>
-                    <groupId>net.alchim31.maven</groupId>
-                    <artifactId>scala-maven-plugin</artifactId>
-                    <version>3.2.2</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>compile</goal>
-                                <goal>testCompile</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+                <!--<plugin>-->
+                <!--<groupId>net.alchim31.maven</groupId>-->
+                <!--<artifactId>scala-maven-plugin</artifactId>-->
+                <!--<version>3.2.2</version>-->
+                <!--<executions>-->
+                <!--<execution>-->
+                <!--<goals>-->
+                <!--<goal>compile</goal>-->
+                <!--<goal>testCompile</goal>-->
+                <!--</goals>-->
+                <!--</execution>-->
+                <!--</executions>-->
+                <!--</plugin>-->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
@@ -333,6 +332,29 @@
                         </filters>
                         <finalName>${project.artifactId}-with-dependencies-${project.version}</finalName>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>run-benchmarks</id>
+                            <phase>integration-test</phase>
+                            <goals>
+                                <goal>exec</goal>
+                            </goals>
+                            <configuration>
+                                <classpathScope>test</classpathScope>
+                                <executable>java</executable>
+                                <arguments>
+                                    <argument>-classpath</argument>
+                                    <classpath/>
+                                    <argument>org.openjdk.jmh.Main</argument>
+                                    <argument>.*</argument>
+                                </arguments>
+                            </configuration>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>

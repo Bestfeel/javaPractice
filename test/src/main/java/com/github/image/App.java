@@ -23,8 +23,8 @@ public class App {
         String path = App.class.getClassLoader().getResource(IMAGE_URL).getPath();
 
 
-        ImageOverlayBuilder imageOverlayBuilder = ImageOverlayBuilder.builder("file://"+path);
-        faceScenarios.findFaces(path).stream().forEach(imageOverlayBuilder:: pixelateFaceOnImage);
+        ImageOverlayBuilder imageOverlayBuilder = ImageOverlayBuilder.builder("file://" + path);
+        faceScenarios.findFaces(path).stream().forEach(imageOverlayBuilder::pixelateFaceOnImage);
         imageOverlayBuilder.launchViewer();
     }
 }

@@ -23,8 +23,6 @@ import java.util.Set;
  */
 @AutoService(Processor.class)
 public class ProcessProcessor extends AbstractProcessor {
-
-
     private Messager messager;
     private Filer filer;
 
@@ -35,9 +33,7 @@ public class ProcessProcessor extends AbstractProcessor {
         this.messager = processingEnv.getMessager();
         //Filer是个接口，支持通过注解处理器创建新文件
         this.filer = processingEnv.getFiler();
-
         System.out.println("....init....");
-
     }
 
 

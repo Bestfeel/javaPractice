@@ -3,3 +3,4 @@
 target
 docs/
 .settings
+.DS_Store
