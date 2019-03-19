@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
  */
 public class ExceptionByteCode {
 
-    public static void main(String[] args) {
+    public void test1() {
         long sum = 0;
         for (int i = 0; i < 100000; i++) {
             sum++;

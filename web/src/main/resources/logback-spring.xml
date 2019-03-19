@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+
+    <property name="LOG_COLOR_PATTERN"
+              value="%white(%d{yyyy-MM-dd HH:mm:ss.SSS})|%highlight(%-5level)|%green(%thread)|%c:%line|%boldMagenta(%logger{35})|%cyan(%m%n%ex{10})"/>
+
     <!-- 输出日志到控制台 -->
     <appender
             name="STDOUT"
             class="ch.qos.logback.core.ConsoleAppender">
         <param name="Encoding" value="UTF-8"/>
         <encoder charset="UTF-8">
-            <pattern>[%level] %d{yyyy/MM/dd-HH:mm:ss} [%thread] TTL=%r %logger{36} [%c : %line] - %msg%n</pattern>
+            <pattern>${LOG_COLOR_PATTERN}</pattern>
         </encoder>
     </appender>
-    <root level="info">
+    <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </root>
     <!--设置我们项目的日志级别为INFO-->
-    <logger name="com.github" level="INFO" additivity="false">
+    <logger name="com.github" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
     <!--设置 apache 的日志为ERROR-->
@@ -21,7 +25,7 @@
         <level value="ERROR"/>
     </logger>
     <logger name="org.springframework">
-        <level value="ERROR"/>
+        <level value="debug"/>
     </logger>
     <logger name="org.thymeleaf">
         <level value="ERROR"/>

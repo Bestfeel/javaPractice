@@ -1,19 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+
+    <property name="LOG_COLOR_PATTERN"
+              value="%white(%d{yyyy-MM-dd HH:mm:ss.SSS})|%highlight(%-5level)|%green(%thread)|%c:%line|%boldMagenta(%logger{35})|%cyan(%m%n%ex{10})"/>
+
+    <!-- 输出日志到控制台 -->
+    <appender
+            name="STDOUT"
+            class="ch.qos.logback.core.ConsoleAppender">
+        <param name="Encoding" value="UTF-8"/>
+        <encoder charset="UTF-8">
+            <pattern>${LOG_COLOR_PATTERN</pattern>
         </encoder>
     </appender>
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="STDOUT"/>
     </root>
     <!--设置我们项目的日志级别为INFO-->
-    <logger name="com.github" level="INFO" additivity="false">
+    <logger name="com.github" level="debug" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
     <!--设置 apache 的日志为ERROR-->
-
-    <logger name="org.apache" level="ERROR"/>
-    <logger name="ch.qos.logback" level="ERROR"/>
+    <logger name="org.apache">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="org.springframework">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="org.thymeleaf">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="org.hibernate">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="springfox.documentation">
+        <level value="ERROR"/>
+    </logger>
+    <!-- druid数据源配置打印日志 start-->
+    <logger name="druid.sql">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="druid.sql.DataSource">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="druid.sql.Connection">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="druid.sql.Statement">
+        <level value="ERROR"/>
+    </logger>
+    <logger name="druid.sql.ResultSet">
+        <level value="ERROR"/>
+    </logger>
 </configuration>
